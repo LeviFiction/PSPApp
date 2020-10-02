@@ -17,9 +17,9 @@ class APP:
         intReturns =  ['CountColors', 'CountImageColors', 'FileOpen', 'MsgBox', 'ScriptWndFilterLevel'] 
 
         if command in dictReturns:
-            return {}
+            return dict
         elif command in listReturns:
-            return []
+            return list
         elif command in strReturns:
             return str
         elif command in boolReturns:
