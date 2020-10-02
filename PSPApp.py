@@ -6,9 +6,9 @@ class APP:
         self.Documents = []
         self.TargetDocument = self.PSPDocument()
         self.ActiveDocument = self.PSPDocument()
-        self.__constList = []
-        self.Constants = self.PSPConstantPool(self.__constList)
+        self.Constants = self.PSPConstantPool([])
         pass
+    
     def Do(self, Environment, command, d={}, doc = None):
         strReturns =  ['SelectLayer', 'SelectPreviousTool', 'SelectTool', 'SelectNextTool'] 
         dictReturns = ['GetCommandInfo', 'GetMaterial', 'GetNextObject', 'GetNumber', 'GetPrevObject', 'GetRasterSelectionRect', 'GetString', 'GetVectorSelectionRect', 'GetVersionInfo', 'ReturnFileLocations', 'ReturnGeneralPreferences', 'ReturnImageInfo', 'ReturnLayerProperties', 'ReturnVectorObjectProperties', "ImageQualityCheck"] 
