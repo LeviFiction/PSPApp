@@ -6,18 +6,29 @@ class APP:
         self.Documents = []
         self.TargetDocument = self.PSPDocument()
         self.ActiveDocument = self.PSPDocument()
-        self.__constList = [self.PSPEnumType("Execution mode defines how the command will run; e.g., interactive or silent.", "ExecutionMode", [(u'Default', 0, u'Defer to the parent execution mode.'), (u'Interactive', 1, u'Display dialog to edit parameters, then execute command.'), (u'Silent', 2, u'Execute command without displaying dialog.'), (u'EditOnce', 3, u'Display dialog on first execution, but subsequent executions are silent.'), (u'EditOnly', 4, u'Display the dialog, but do not execute the command.'), (u'SilentFix', 5, u'Execute command without displaying dialog.')] )]
+        self.__constList = []
         self.Constants = self.PSPConstantPool(self.__constList)
         pass
     def Do(self, Environment, command, d={}, doc = None):
-        if command == 'ReturnImageProperties':
+        strReturns =  ['SelectLayer', 'SelectPreviousTool', 'SelectTool', 'SelectNextTool'] 
+        dictReturns = ['GetCommandInfo', 'GetMaterial', 'GetNextObject', 'GetNumber', 'GetPrevObject', 'GetRasterSelectionRect', 'GetString', 'GetVectorSelectionRect', 'GetVersionInfo', 'ReturnFileLocations', 'ReturnGeneralPreferences', 'ReturnImageInfo', 'ReturnLayerProperties', 'ReturnVectorObjectProperties', "ImageQualityCheck"] 
+        listReturns = ['FileAssociations'] 
+        boolReturns =  ['CompareCheckpoints', 'HasVectorSelection', 'ScriptSingleStep', 'ScriptWndAutoShow', 'SelectNextLayer', 'SelectPreviousLayer', 'RestoreOriginalFile', 'RestoreOriginalImage'] 
+        intReturns =  ['CountColors', 'CountImageColors', 'FileOpen', 'MsgBox', 'ScriptWndFilterLevel'] 
+
+        if command in dictReturns:
             return {}
-        elif command == 'Getcolor':
-            return ()
-        elif command == 'G':
+        elif command in listReturns:
             return []
+        elif command in strReturns:
+            return str
+        elif command in boolReturns:
+            return bool
+        elif command in intReturns:
+            return int
         else:
             return None
+
     def __getitem__(self, key):
         pass
     def EndMemStats(self):
