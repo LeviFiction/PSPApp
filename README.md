@@ -10,3 +10,10 @@ Does not provide code completion for constants or any settings for commands.  Ju
 
 ## HowTo: Install
 Download these two files and put them into the Lib/Site-Packages folder of your Python Installation.  Preferrably Python 2.7 as that's the embedded version of Python that PSP uses.
+
+## Recommended Next Steps:
+It is recommended that you also copy JascUtils and PSPUtils from their location in PSP's installation directory to the same location as the PSPApp and JascApp libraries.
+They can be used alongside these libraries to create scripts that work with code completion.  
+
+You can usually find these libraries here: C:\Program Files\Corel\Version Folder\Languages\YourLanguage\Python Libraries\
+
